@@ -26,12 +26,12 @@ If you intend to build an application that acts on its own behalf (machine to ma
 
 ```
 curl --request POST \
-  --url 'https://login.lens.poly.com/oauth/token' \
+  --url 'https://https://silica-stage01.auth0.com/oauth/token' \
   --header 'content-type: application/x-www-form-urlencoded' \
   --data grant_type=client_credentials \
   --data 'client_id=YOUR_CLIENT_ID' \
   --data client_secret=YOUR_CLIENT_SECRET \
-  --data audience=https://api.silica-prod01.io.lens.poly.com/
+  --data audience=https://api.silica-stage01.io.lens.poly.com/
 
 ```
 
@@ -46,14 +46,14 @@ The response will look something like
 
 ## Querying the GraphQL APIs
 
-Now that you have an access token you'll be able to make requests to the Poly GraphQL API endpoint.  In order to do so you'll need to make a post request to https://api.silica-prod01.io.lens.poly.com/graphql
+Now that you have an access token you'll be able to make requests to the Poly GraphQL API endpoint.  In order to do so you'll need to make a post request to https://api.silica-stage01.io.lens.poly.com/graphql
 with an `Authorization: Bearer <ACCESS_TOKEN>` header.
 
 For example, to query for the details of your account you'd use the `tenants` query API:
 
 ```
 curl --request POST \
-  --url 'https://api.silica-prod01.io.lens.poly.com/graphql' \
+  --url 'https://api.silica-stage01.io.lens.poly.com/graphql' \
   -H "Content-Type: application/json" \
   --data '{ "query": "{ tenants { id name } }" }' 
 ```
